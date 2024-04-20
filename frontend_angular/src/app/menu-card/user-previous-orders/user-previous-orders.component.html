@@ -1,0 +1,42 @@
+<div class="margin z-index-1" style="overflow-x: auto;">
+
+    <div class="text-center" *ngIf="empty">
+        NO ORDERS TO DISPLAY
+    </div>
+    
+    <table class="table-bordered text-center" style="width: 100%;" *ngIf="!empty">
+
+        <tr class="bg-light">
+            <td class="p-1">S.No.</td>
+            <td class="p-1">Order Number</td>
+            <td class="p-1">Details</td>
+            <td class="p-1">Amount</td>
+            <td class="p-1">Status</td>
+        </tr>
+
+            <tr *ngFor="let item of orders; let i=index">
+                <td class="p-1">{{i+1}}</td>
+                <td class="p-1">{{item.orderNo}}</td>
+                <td class="p-1">
+                    <table style="width: 100%;">
+                        <tr class="bg-light">
+                            <td class="p-1">S.No.</td>
+                            <td class="p-1">Name</td>
+                            <td class="p-1">Price</td>
+                            <td class="p-1">Quantity</td>
+                        </tr>
+                        <tr *ngFor="let subItem of item['orders']; let i=index">
+                            <td class="p-1">{{i+1}}</td>
+                            <td class="p-1">{{subItem.name}}</td>
+                            <td class="p-1">{{subItem.total | currency:'INR'}}</td>
+                            <td class="p-1">{{subItem.quantity}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>{{item.amount | currency:'INR'}}</td>
+                <td>{{item.status}}</td>
+            </tr>
+
+    </table>
+
+</div>

@@ -1,0 +1,16 @@
+<div class="box-alert">
+
+    <div class="alert" [ngClass]="{
+        'alert-success':success,
+        'alert-danger':error
+    }">
+    <span class="cursor-pointer pull-right size-12" (click)="onClose()">&times;</span>
+
+        <div *ngIf="success">
+            {{success}}
+        </div>
+        <div *ngIf="error">
+            {{error}}
+        </div>
+    </div>
+</div>

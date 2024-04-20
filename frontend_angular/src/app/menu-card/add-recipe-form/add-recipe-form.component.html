@@ -1,0 +1,58 @@
+<div class="bgcolor d-flex justify-content-center align-items-center p-2">
+    <div class="bg-white col-lg-7 col-md-8 col-sm-10 shadow-sm py-2">
+
+        <button class="btn btn-danger border-dark rounded-0 py-1 px-2 my-2 mx-1" type="button" (click) = "uploadFile()">Upload File <i class="fa fa-upload"></i></button>
+        <input type="file" id="file" name="image" class="font-size mx-1" (change) = "selectImg($event)">
+        <button class="btn btn-warning border-dark rounded-0 py-1 px-2 my-2 mx-1" type="button" (click) = "downloadTemplate()">Download Template <i class="fa fa-download"></i></button>
+
+        <p class="font-weight-bold font-color-red mb-1">All fields are mandatory to fill !! </p>
+
+        <form #inputForm = "ngForm" (ngSubmit)="onSubmit(inputForm)">
+
+            <app-alert [success]=" success " *ngIf="success" (close)="close()"></app-alert>
+            <app-alert [error]=" error " *ngIf="error" (close)="close()"></app-alert>
+
+        <div class="form-group">
+            <label for="" class="form-label font-size px-0 font-weight-bold">Name</label><br>
+            <div class="">
+                <input type="text" class="font-size w-100 px-1 py-1 rounded-0 shadow-none outline-none border-grey" placeholder="Enter the name" name="name" required ngModel pattern="[a-zA-Z][a-zA-Z ]{2,}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="" class="form-label font-size px-0 font-weight-bold">Price</label><br>
+            <div class="">
+                <input type="text" class="font-size px-1 py-1 rounded-0 shadow-none outline-none border-grey" placeholder="Enter the price" name="price" required ngModel #price=ngModel pattern="^[0-9]*$"><br>
+
+                <span class="help-block" *ngIf="!price.valid && price.dirty">enter numbers</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="" class="form-label font-size px-0 font-weight-bold">Description</label><br>
+            <div class="">
+                <textarea type="text" class="font-size w-100 px-1 py-1 rounded-0 shadow-none outline-none border-grey" placeholder="Enter short description" name="description" required ngModel></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="" class="form-label font-size px-0 font-weight-bold">Created By</label><br>
+            <div class="">
+                <input type="text" class="font-size w-100 px-1 py-1 rounded-0 shadow-none outline-none border-grey" placeholder="Enter your name" name="createdby" required [(ngModel)]="add.createdby" readonly>
+            </div>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input margin-top" name="isVegan" [(ngModel)]=add.isVeg checked>
+            <label class="form-check-label text-danger font-weight-bold font-size m-0">Item is pure veg</label>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-info rounded-0 outline-none shadow-none width mt-3 py-1" [disabled]="inputForm.form.invalid" type="submit">Add</button>
+            <button class="btn btn-info rounded-0 outline-none shadow-none width mt-3 py-1" type="button" routerLink="/food/record">Records</button>
+        </div>
+
+        </form>
+    </div>
+</div>
+

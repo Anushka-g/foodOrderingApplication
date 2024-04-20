@@ -1,0 +1,39 @@
+.food-card_img img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.food-card_img i{
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    color: red;
+    transition: all 0.1s;
+    font-size: 25px;
+}
+
+.food-card_cart-btn .fa-cart-plus:hover, .food-card_cart-btn .fa-trash:hover{
+    transform: scale(1.2);
+}
+
+.food-card_order-count{
+    width: 140px;
+}
+
+.display{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.text-style{
+    font-size: 12px;
+    color: gray;
+}
+
+.pointer-event{
+    pointer-events: none;
+}

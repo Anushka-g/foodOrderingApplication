@@ -1,0 +1,57 @@
+.bg-light{
+    height: 100vh;
+    z-index: 1;
+}
+
+.display{
+    display: flex;
+}
+
+.border-grey{
+    border: 0.5px solid rgb(136, 136, 136)
+}
+
+.outline-none{
+    outline: none;
+}
+
+.font-size-16{
+    font-size: 16px;
+}
+
+.font-size-12{
+    font-size: 12px;
+}
+
+img{
+    width: 120px;
+    height: 120px;
+}
+
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+.letter-spacing{
+    letter-spacing: 1px;
+}
+
+@media (max-width:900px){
+
+    .display{
+        display: inline-block;
+        width: 100%;
+    }
+
+    .flex-display{
+        display: flex;
+    }
+
+    .margin-min-screen{
+        margin: 20px;
+    }
+
+    .margin-top{
+        margin-top: 25px;
+    }
+}    

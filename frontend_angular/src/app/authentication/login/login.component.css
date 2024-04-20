@@ -1,0 +1,115 @@
+.body{
+    height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.body .image-section img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.body .form-section{
+    display: flex;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    width: 50%;
+    height: 100%;
+}
+
+.body .form-section::-webkit-scrollbar{   /* chrome, safari and opera */
+    display: none;
+}
+
+.body .form-section{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;        /* firefox */
+}
+
+.body .form-section .form-section-box{
+    background-color:rgba(255, 255, 255, 0.8);
+}
+
+.body .form-section .form-section-box h3{
+    font-family: 'Calistoga';
+}
+
+.body .form-section .form-group{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.body .form-section .form-section-box  label{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.body .form-section .form-section-box  input{
+    box-shadow: none;
+    border-width: 1px;
+    background-color:rgba(255, 255, 255, 0.2);
+    color: black;
+    letter-spacing: 1px;
+}
+
+.body .form-section .form-section-box  .btn{
+    margin-top: 20px;
+    box-shadow: none;
+}  
+
+.help-block{
+    color: grey;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+}
+
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+
+input.ng-untouched, input.ng-valid{
+    border: 2px solid black;
+}
+
+.select{
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid black;
+    background-color:rgba(255, 255, 255, 0.2);
+}
+
+select.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+select.ng-untouched, input.ng-valid{
+    border: 1px solid black;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+@media (max-width:768px){
+    
+    .body .image-section img{
+        height: 100vh;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .body .form-section{
+        width: 100%;
+        height: 100%;
+        
+    }
+
+    .body .form-section .form-section-box{
+        margin-left: 50px;
+        margin-right: 50px;
+    }    
+   
+}   

@@ -1,0 +1,24 @@
+.box-alert{
+    display: flex;
+    justify-content: center;
+}
+
+.alert{
+    z-index: 3;
+    position: fixed;
+    top: 40px;
+    width: 50%;
+}
+
+.alert-success, .alert-danger{
+    text-align: center;
+    border: 1px solid black;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.size-12{
+    font-size: 15px;
+}

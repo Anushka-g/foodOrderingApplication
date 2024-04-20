@@ -1,0 +1,99 @@
+.side-nav-bar{
+    background-color: rgb(218 221 255);
+    padding-top: 100px;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.side-nav-bar a{
+    font-size: 20px;
+    margin-top: 5px;
+    color: black;
+    display: block;
+    width: 100%;
+    line-height: 50px;
+    text-decoration: none;
+    padding-left: 30px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background-color;
+}
+
+.side-nav-bar a:hover{
+    color: #2700ff;
+}
+
+.side-nav-bar i{
+    padding-right: 10px;
+}
+
+
+label, #sidebar_btn {
+    color:black;
+    position: fixed;
+    cursor: pointer;
+    left: 15px;
+    font-size: 20px;
+    top: 16px;
+    z-index: 4;
+}
+
+a{
+    cursor: pointer;
+}
+
+#sidebar_btn:hover{
+    color: #2700ff;
+}
+
+#check:checked ~ .side-nav-bar{
+    left: -200px;
+}
+
+#check:checked ~ .side-nav-bar a span{
+    display: none;
+}
+
+#check:checked ~ .side-nav-bar a{
+    font-size: 20px;
+    text-align: center;
+    padding-left: 40px;
+    margin-left: 170px;
+    width: 80px;
+}
+
+#check{
+    display: none;
+}
+
+.activeLink{
+    color: #2700ff;
+}
+
+@media(max-width:767px) and (min-width:650px){
+    .side-nav-bar {
+        width: 230px;
+        transition: 0.5s;
+    }  
+    
+    #check:checked ~ .side-nav-bar{
+        left: -180px;
+    }
+
+    #check:checked ~ .side-nav-bar a{
+        padding-left: 20px;
+        width: 60px;
+    } 
+}    
+
+@media (max-width:650px){
+
+    #check:checked ~ .side-nav-bar{
+        left: -250px;
+    }
+
+}

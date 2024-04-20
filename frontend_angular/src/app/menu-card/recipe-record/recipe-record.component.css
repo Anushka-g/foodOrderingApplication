@@ -1,0 +1,42 @@
+.alert{
+    z-index: 3;
+    position: fixed;
+    top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.z-index-1{
+    z-index: 1;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+.font-size{
+    font-size: 12px;
+}
+
+th,td{
+    padding: 0 10px 0;
+} 
+
+.margin{
+    margin: 60px 5px 5px 60px;
+}
+
+@media (max-width:650px){
+    .margin{
+        margin: 60px 5px 60px 5px;
+    }
+
+    th,td{
+        padding: 0 10px 0;
+        font-size: 12px;
+    } 
+}    
+

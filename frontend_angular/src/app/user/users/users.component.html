@@ -1,0 +1,96 @@
+<div class="margin">
+
+    <app-loading-spinner *ngIf="!loading"></app-loading-spinner>
+
+    <div style="overflow-x: auto;" *ngIf="loading">
+    
+        <table class="font-size-14 text-center">
+
+            <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Email ID</th>
+                <th>Account status</th>
+                <th>Role</th>
+            </tr>
+
+            <tr *ngFor="let user of users; let i = index">
+                <td>{{i+1}}</td>
+                <td><img src="{{url}}/{{user._id}}" onerror="this.src = '../../assets/Images/avatar.png' "></td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <i class="fa" [ngClass]="{
+                        'fa-unlock-alt': user.isActiveAccount === 'true',
+                        'fa-lock': user.isActiveAccount === 'false'
+                        }" >
+                    </i>
+                </td>
+                <td>{{user.role}}</td>
+                <td><i class="fa fa-pencil-square-o cursor-pointer" data-toggle="modal" data-target="#exampleModal" (click)="updateAccount(user)"></i></td>
+                <td><i class="fa fa-trash text-danger cursor-pointer" (click)="delete(user._id)"></i></td>
+            </tr>
+
+        </table>
+    
+    </div>
+  
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header py-2">
+            <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Profile</h5>
+        </div>
+        <div class="modal-body">
+            
+            <form>
+                <div class="form-group mb-2"> 
+                    <label for="" class="h6">Name</label>
+                    <input type="text" class="p-1 shadow-none w-100" id="" [(ngModel)]="usersInfo.name" name="
+                    name" required pattern="[a-zA-Z][a-zA-Z ]{2,}">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="" class="h6">Email</label>
+                    <input type="email" class="w-100 p-1 shadow-none" name="email" [(ngModel)]="usersInfo.email" required  #email = ngModel
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" >
+                    <span class="help-block" *ngIf="!email.valid && email.dirty">enter email in proper format</span>
+                    <span class="help-block" *ngIf="email.touched && !email.dirty">required</span>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="" class="h6">Mobile</label>
+                    <input type="text" class="w-100 p-1 shadow-none" name="phone" [(ngModel)]="usersInfo.phone" required #phone = ngModel
+                    pattern="^\d{10}$">
+                    <span class="help-block" *ngIf="!phone.valid && phone.dirty">mobile number must be of 10 digits</span>
+                    <span class="help-block" *ngIf="phone.touched && !phone.dirty">required</span>
+                </div>
+                <!-- <div class="form-group mb-2">
+                    <label class="h6">Choose your Gender</label>
+                    <div>
+                        <select class="select w-100 p-1 rounded-0 outline-none font-size" [(ngModel)]="usersInfo.gender" name="gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div> -->
+                <div class="form-group mb-2">
+                    <label for="" class="h6">Date of Birth</label>
+                    <input type="date" class="w-100 p-1 shadow-none border-dark" name="dateOfBirth" [(ngModel)]="usersInfo.dateOfBirth">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="myCheck">
+                    <label class="form-check-label font-weight-bold" for="">{{isAccountStatusActive ? 'Active account' : 'Inactive account'}}</label>
+                </div>
+                <span class="help-block text-danger">{{isAccountStatusActive ? 'Note : Uncheck box to deactivate the account' : 'Note : Check box to activate the account'}}</span>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary py-1 px-2 shadow-none" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success py-1 px-2 shadow-none" (click)="saveChanges(usersInfo)" data-dismiss="modal">Save changes</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+</div>

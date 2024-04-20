@@ -1,0 +1,37 @@
+*{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.navbar{
+    background-color: rgb(218 221 255);
+    position: fixed;
+    z-index: 3;
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+    cursor: pointer;
+}
+
+.navbar .navbar-nav .nav-item .nav-link h5{
+    color: black;
+}
+
+.navbar .navbar-nav .nav-item .nav-link h5:hover{
+    color: #2700ff;
+} 
+
+.activeLink{
+    color: #2700ff;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+@media (max-width:650px){
+
+    .transform{
+        transform: scale(1.4);
+    }
+}    
+

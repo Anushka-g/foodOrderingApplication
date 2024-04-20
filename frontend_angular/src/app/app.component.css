@@ -1,0 +1,36 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#main-content.active{
+    transition: 0.5s;
+    margin-left: 200px;
+}
+
+#main-content{
+    transition: 0.5s;
+}
+
+@media(max-width:767px){
+
+    #main-content.active{
+        transition: 0.5s;
+        margin-left: 180px;
+    }
+
+    #main-content{
+        transition: 0.5s;
+    }
+}    
+
+@media(max-width:650px){
+
+    #main-content.active{
+        margin-left: 0;
+        z-index:1;
+    }
+
+    #main-content{
+        transition: 0.5s;
+    }
+}    

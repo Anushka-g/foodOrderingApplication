@@ -1,0 +1,21 @@
+<input [(ngModel)]="accepted" type="checkbox" id="check">
+
+    <label for="check" *ngIf="isAuthenticated">
+        <i class="fa fa-bars" aria-hidden="true" id="sidebar_btn"></i>
+    </label>
+    
+    <div class="side-nav-bar" *ngIf="isAuthenticated">
+
+        <a routerLink="/food/dashboard"><i class="fa fa-home" routerLinkActive="activeLink" aria-hidden="true"></i><span routerLinkActive="activeLink">Home</span></a>
+
+        <a (click)="onLogOut()"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span></a>
+
+        <a routerLink="/food/add" *ngIf="isAuthenticated && isAdmin"><i class="fa fa-plus-circle" routerLinkActive="activeLink" aria-hidden="true" ></i><span routerLinkActive="activeLink">Add Info</span></a>
+
+        <a routerLink="/user/all" *ngIf="isAuthenticated && isAdmin"><i class="fa fa-address-book-o" routerLinkActive="activeLink" aria-hidden="true" ></i><span routerLinkActive="activeLink">Users Details</span></a>
+
+        <a routerLink="/food/requests" *ngIf="isAuthenticated && isAdmin"><i class="fa fa-truck" routerLinkActive="activeLink"></i><span routerLinkActive="activeLink">Order Requests</span></a>
+
+        <a routerLink="/food/my" *ngIf="isAuthenticated"><i class="fa fa-history" routerLinkActive="activeLink"></i><span routerLinkActive="activeLink">My Orders</span></a>
+
+    </div>

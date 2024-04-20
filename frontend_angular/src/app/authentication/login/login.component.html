@@ -1,0 +1,76 @@
+<div class="">
+
+    <div class="text-center">
+        <app-alert [success]=" success " *ngIf="success" (close)="close()"></app-alert>
+        <app-alert [error]=" error " *ngIf="error" (close)="close()"></app-alert>
+    </div>
+    
+    <div class="body w-100 d-flex">
+    
+        <div class="image-section">
+            <img src="../../assets/Images/register-page-img.jpg">
+        </div>
+    
+        <div class="form-section">
+            <div class="form-section-box">
+    
+                    <form #userForm = "ngForm" (ngSubmit)="onSubmit(userForm)">
+    
+                        <div class="form-group mt-2">
+                            <label class="form-label">Email </label>
+                            <input type="text" class="form-control" 
+                            name="email" required ngModel #email=ngModel>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Password </label>
+    
+                            <div class="input-group">
+                                <input [type]="showPassword ? 'text' : 'password'"
+                                class="form-control" 
+                                name="password" required ngModel #password=ngModel>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fa" [ngClass]="{
+                                        'fa-eye-slash': !showPassword,
+                                        'fa-eye': showPassword
+                                        }"
+                                        (click)="toggleShow()"></i>
+                                    </span>
+                                </div>
+                            </div>   
+                            
+                            <div class="my-1" *ngIf="!isLoginPage">
+                                <span class="help-block"><b>Note : </b>Password should be of 8 character, contain at least, a number an uppercase letter, a lowercase, a special character</span>
+                            </div>
+    
+                        </div>
+    
+                        <div class="form-group" *ngIf="!isLoginPage">
+                            <label class="form-label font-size font-weight-bold">Choose your Role</label>
+                            <div>
+                                <select class="select w-100 px-1 py-1 shadow-none outline-none font-size form-control" ngModel name="role" required>
+                                    <option value="visitor">Visitor</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        
+                        <div class="form-group text-center">
+                            <button class="btn btn-success w-100" type="submit" [disabled]="userForm.form.invalid"><h5 class="m-0">{{isLoginPage ? 'Login' : 'Sign up'}}</h5></button>
+                        </div> 
+                    </form>
+    
+                    <div class="text-center pb-2">
+                        <a class="m-0 p-0 cursor-pointer" (click)="switchToSignUp()">Switch to {{isLoginPage ? 'Sign-up' : 'Login'}}</a>
+                    </div>
+                
+            </div>
+    
+        </div>
+    
+    </div>    
+
+</div>
+

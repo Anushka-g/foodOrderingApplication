@@ -1,0 +1,32 @@
+.margin{
+    margin: 60px 10px 5px 70px;
+    font-family: 'Arbutus Slab';
+    z-index: 1;
+}
+
+.z-index-1{
+    z-index: 1;
+}
+
+.z-index{
+    z-index: 4;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+table, td, th {
+    border: 1px solid rgb(136, 136, 136);
+}
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+@media (max-width:650px){
+    .margin{
+        margin: 60px 10px 60px 18px;
+    }
+}

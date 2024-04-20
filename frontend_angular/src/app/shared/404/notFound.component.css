@@ -1,0 +1,14 @@
+.body-height{
+    height: 100vh;
+}
+
+.margin{
+    margin: 60px 10px 5px 70px;
+}
+
+@media (max-width:650px){
+
+    .margin{
+        margin: 60px 10px 60px 18px;
+    }
+}    

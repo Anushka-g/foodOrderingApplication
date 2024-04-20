@@ -1,0 +1,108 @@
+<div class="margin">
+
+    <div class="d-flex justify-content-between mb-4">
+        <div class="">
+            <h4>Dashboard</h4>
+        </div>
+        
+        <div class="">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click) = "getOrderDetails()">
+            Go To Orders</button>
+        </div>
+    </div>
+
+    <app-loading-spinner *ngIf="!loading"></app-loading-spinner>
+
+    <div class="my-4" *ngIf="loading">
+        <div class="input-group col-lg-4 col-md-5 px-0">
+            <input type="text" class="form-control shadow-none border-dark z-index-1" placeholder="Type to search..." aria-label="" aria-describedby="basic-addon2" (keyup)="searchItems($event)">
+            <div class="input-group-append">
+                <span class="input-group-text shadow-none"><i class="fa fa-search" aria-hidden="true"></i></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="my-4 mx-2">
+
+      <div class="" *ngFor="let item of inProgressOrders">
+
+        <div class="" *ngIf="item.status != 'completed'">
+
+          <div class="my-4">Order Number : {{item.orderNo}}</div>
+
+          <div class="progress" style="height: 50px;">
+
+            <div *ngIf="item.status == 'delivered'" class="progress-bar" style="width: 100%; background-color: green; color: white;">Delivered</div>
+
+            <div *ngIf="item.status == 'on the way'" class="progress-bar" style="width: 75%; background-color: red; color: white;">On The Way</div>
+
+            <div *ngIf="item.status == 'preparing'" class="progress-bar" style="width: 50%; background-color: blue; color: white;">Preparing</div>
+
+            <div *ngIf="item.status == 'received'" class="progress-bar" style="width: 25%; background-color: yellow; color: black;">Received</div>
+            
+          </div>
+          <hr>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="row m-0" *ngIf="loading">
+      <app-order-menu class="col-sm-10 col-md-6 col-lg-4" *ngFor="let f of foods" [f]="f"></app-order-menu>  
+    </div>
+   
+</div>
+
+<div class="model-content z-index">
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title font-weight-bold text-primary" id="exampleModalLabel">My Orders</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+            <div class="alert alert-danger text-center" *ngIf="error">
+                {{error}}
+            </div>
+        
+            <div class="alert alert-success text-center" *ngIf="success">{{success}}</div>
+
+          <div *ngIf="!lengthOfOrdersArray">
+              <p class="m-0 text-center p-2 font-weight-bold">No Orders to Display</p>
+          </div>
+          <div class="modal-body" *ngIf="lengthOfOrdersArray">
+            <table>
+                <tr class="text-center">
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let order of orders" class="text-center">
+                    <td>{{order.name}}</td>
+                    <td>{{order.price | currency:'INR'}}</td>
+                    <td>{{order.quantity}}</td>
+                    <td>{{order.total | currency:'INR'}}</td>
+                    <td class="text-center"><i class="fa fa-trash cursor-pointer text-danger" (click)="deleteOrder(order)"></i></td>
+                </tr>
+            </table>
+            <br><br>
+            <p class="m-0 text-center font-weight-bold">Grand Total : {{amount | currency:'INR'}}</p>
+        </div>
+          <div class="modal-footer" *ngIf="lengthOfOrdersArray">
+            <button type="button" class="btn btn-success shadow-none w-100" (click)="placeOrder()">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+

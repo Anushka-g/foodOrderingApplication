@@ -1,0 +1,32 @@
+<div class="z-index-1 margin">
+
+    <app-alert [success]=" success " *ngIf="success" (close)="close()"></app-alert>
+    <app-alert [error]=" error " *ngIf="error" (close)="close()"></app-alert>
+
+<div style="overflow-x:auto;">
+  <table>
+    <tr>
+        <th class="text-left">#</th>
+        <th class="text-left">Name</th>
+        <th class="text-left">Price</th>
+        <th class="text-left">Created By</th>
+        <th class="text-left">Created On</th>
+        <th class="text-left">Image upload</th>
+        <th class="text-left">Action</th>
+    </tr>
+    <tr *ngFor="let f of foodData; let i = index ">
+        <td class="text-left w-auto">{{i + 1}}</td>
+        <td class="text-left w-auto">{{f.name}}</td>
+        <td class="text-left w-auto">{{f.price | currency:'INR'}}</td>
+        <td class="text-left w-auto">{{f.createdby}}</td>
+        <td class="text-left w-auto">{{f.createdAt}}</td>
+        <td>
+            <input type="file" id="file" name="image" (change) = "selectImg($event)" class="font-size">
+        </td>
+        <td> 
+            <button type="submit" class="btn btn-success my-1 p-1 shadow-none font-size" (click) ="uploadImg(f._id)">Upload</button>
+        </td>
+    </tr> 
+  </table>
+</div>
+</div>

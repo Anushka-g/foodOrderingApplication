@@ -1,0 +1,59 @@
+<div class="food-card rounded-lg shadow mb-4 overflow-hidden bg-white">
+
+    <div class="food-card_img position-relative">
+        <img src="{{url}}/{{f._id}}" onerror="this.src = '../../assets/Images/default-error-image.png'">
+        <i class="fa" [ngClass]="{
+            'fa-heart-o': !f.isAddedToFavourite,
+            'fa-heart': f.isAddedToFavourite 
+            }" (click)="toggleIcon(f)">
+        </i>
+    </div>
+
+    <div class="food-card_content p-2">
+        <div class="food-card_title-section overflow-hidden">
+            <h6 class="food-card_title font-weight-bold">
+                {{f.name}}
+            </h6>
+
+            <div class="d-flex justify-content-between">
+                <div class="food-card_price">
+                    <p class="m-0">{{f.price | currency:'INR'}}</p>
+                </div>
+                <div class="">
+                    <span class="badge" [ngClass]="{
+                    'badge-success': f.isVegan === 'true',
+                    'badge-danger': f.isVegan === 'false'
+                }">
+                        {{f.isVegan === 'true' ? 'veg' : 'non-veg'}}
+                    </span>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-between">
+                <div class="food-card_cart-btn">
+                    <button class="btn btn-primary shadow-none">
+                        <i class="fa fa-cart-plus" (click)="addFoodToOrderList(f)"></i>
+                    </button>
+                </div>
+                <div class="food-card_order-count pt-1">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend z-index-1">
+                            <button class="btn btn-outline-secondary minus-btn display shadow-none" type="button"><i
+                                    class="fa fa-minus" (click)="minusOne(f)"></i></button>
+                        </div>
+                        <input type="text" (keydown)="preventKeyPress($event)"
+                            class="form-control input-manulator display shadow-none pointer-event" placeholder=""
+                            aria-label="" aria-describedby="basic-addon1" [(ngModel)]="f.quantity">
+                        <div class="input-group-append z-index-1">
+                            <button class="btn btn-outline-secondary add-btn display shadow-none" type="button"><i
+                                    class="fa fa-plus" (click)="plusOne(f)"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
