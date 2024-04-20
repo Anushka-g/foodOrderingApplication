@@ -28,15 +28,15 @@ Successfully developed and deployed a feature-rich Food Application, enabling se
    - JWT_SECRET: Any string character
    - MONGODB_URL: mongodb://<IP_address>:<Port>/<DB_name>
 
-7. Create a folder to store mongoDB data. Start MongoDB from command line using
-   ```<path_to_mongod>/bin/mongod --dbpath=<data_directory>```
+6. Create a folder to store mongoDB data in your project directory. Start MongoDB from command line using
+   ```<path_to_mongodb>/bin/mongod --dbpath=<data_directory>```
    replacing `<path_to_mongodb>` with the path to your MongoDB installation directory and `<data_directory>` with the path to the folder        created.
 
-8. Start Studio 3T and connect to your local MongoDB instance.
+7. Start Studio 3T and connect to your local MongoDB instance.
 
-9. Start server by running ```npm run dev```
+8. Start server by running ```npm run dev```
 
-10. Upon successful setup, one will receive the following message.
+9. Upon successful setup, one will receive the following message.
  
    ``` 
    > node@1.0.0 dev
