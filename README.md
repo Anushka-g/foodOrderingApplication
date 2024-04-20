@@ -12,6 +12,6 @@ Successfully developed and deployed a feature-rich Food Application, enabling se
 3. Provided Admin Users with extensive controls for efficient business management, including user account management without data loss, addition of new recipes through form or bulk        upload features, and real-time order status updates for enhanced user experience.
 
 **Setting Up Your Development Environment**
-1. Clone the repository to your local machine.
+1. Clone the repository to your local machine.<br>
    ```git clone https://github.com/Anushka-g/foodOrderingApplication.git```
 
