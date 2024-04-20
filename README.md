@@ -26,7 +26,7 @@ Successfully developed and deployed a feature-rich Food Application, enabling se
    
    - PORT
    - JWT_SECRET: Any string character
-   - MONGODB_URL: mongodb://<IP_address>:<Port>/<DB_name>
+   - MONGODB_URL: mongodb://<IP_address>:<Port/DB_name>
 
 6. Create a folder to store mongoDB data in your project directory. Start MongoDB from command line using
    ```<path_to_mongodb>/bin/mongod --dbpath=<data_directory>```
