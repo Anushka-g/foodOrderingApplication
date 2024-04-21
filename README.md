@@ -1,18 +1,18 @@
 # Food Ordering Application
 
-**Technologies**: 
-Angular 12, Node.js, Express.js, MongoDB
+**TECHNOLOGIES**: 
+Angular 12.1.0, Node.JS, Express.JS, MongoDB
 
-**Achievement**: 
+**ACHIEVEMENT**:
 Successfully developed and deployed a feature-rich Food Application, enabling seamless communication between customers and restaurants.
 
-**Key Features**:
+**KEY FEATURES**
 1. Implemented robust authentication and Role-Based Authorization to ensure data security and prevent unauthorized access, significantly reducing the risk of misuse and data breaches.
 2. Enabled customers to create accounts, facilitating direct order placement, personal information updates (e.g., date of birth, phone number), profile picture uploads, and password       changes within the application.
 3. Provided Admin Users with extensive controls for efficient business management, including user account management without data loss, addition of new recipes through form or bulk        upload features, and real-time order status updates for enhanced user experience.
 
-**Setting Up Your Development Environment**
-1. For local setup, ensure you have Node, MongoDB, and Studio 3T installed.
+**SETTING UP YOUR DEVELOPMENT ENVIRONMENT**
+1. For local setup, ensure you have Angular 12.1.0, Node v15.14.0, MongoDB, and Studio 3T installed.
   
 2. Clone the repository to your local machine.<br>
    ```git clone https://github.com/Anushka-g/foodOrderingApplication.git```
@@ -49,4 +49,16 @@ Successfully developed and deployed a feature-rich Food Application, enabling se
    [nodemon] starting `node src/index.js`
    Server is up on port 3000
    ```
+
+10. Navigate to the project directory.
+    ```cd frontend_angular```
+
+11. Start user interface by running ```ng serve```
+
+12. Upon successful setup, one will receive the following message.
+    ```
+    ** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+    
+    ✔ Compiled successfully.
+    ```
 
